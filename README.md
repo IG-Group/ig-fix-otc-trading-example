@@ -1,4 +1,4 @@
-ig-fix-dma-trading-example
+ig-fix-otc-trading-example
 ==========
 
 This is a example java application that sends an order to the IG FIX OTC Trading API.

@@ -1,4 +1,4 @@
-package com.ig.api.fix.dma.trading.app.quickfixj;
+package com.ig.api.fix.otc.trading.app.quickfixj;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

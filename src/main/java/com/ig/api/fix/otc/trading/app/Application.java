@@ -1,4 +1,4 @@
-package com.ig.api.fix.dma.trading.app;
+package com.ig.api.fix.otc.trading.app;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;

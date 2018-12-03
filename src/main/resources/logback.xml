@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration scan="true" debug="false">
 
-    <property name="LOG_FILE" value="fix-dma-trading-example.log"/>
+    <property name="LOG_FILE" value="fix-otc-trading-example.log"/>
     <property name="LOG_PATTERN" value="%d %-5p [%.21t] %logger{1} - %msg%n"/>
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
