@@ -3,12 +3,9 @@ package com.ig.api.fix.dma.trading.app.quickfixj;
 import io.allune.quickfixj.spring.boot.starter.EnableQuickFixJClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-
 import quickfix.Application;
 
 @Configuration
-@Profile("fix42")
 @EnableQuickFixJClient
 public class ConfigQuickFixJ {
 
@@ -18,6 +15,6 @@ public class ConfigQuickFixJ {
      */
     @Bean
     public Application clientApplication() {
-        return new QFJApplicationFix42();
+        return new QFJApplicationFix50SP2();
     }
  }

@@ -6,5 +6,5 @@ ${Ansi.RED} __     ______
  \ \_\  \ \_____\
   \/_/   \/_____/
 
-IG GROUP PLC - FIX DMA Trading API Example
+IG GROUP PLC - FIX OTC Trading API Example
 ${Ansi.DEFAULT}

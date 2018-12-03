@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ig.api.fix</groupId>
-    <artifactId>ig-fix-dma-trading-example</artifactId>
+    <artifactId>ig-fix-otc-trading-example</artifactId>
     <version>0.1</version>
 
     <properties>
         <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
         <spring.framework.version>5.1.2.RELEASE</spring.framework.version>
-        <quickfixj.version>2.1.0</quickfixj.version>
+        <quickfixj.version>2.1.0.ig.otc.5</quickfixj.version>
         <quickfixj.springboot.version>2.1.0</quickfixj.springboot.version>
     </properties>
 
@@ -51,12 +51,12 @@
         </dependency>
         <dependency>
             <groupId>org.quickfixj</groupId>
-            <artifactId>quickfixj-messages-fixt11</artifactId>
+            <artifactId>quickfixj-messages-fix50sp2</artifactId>
             <version>${quickfixj.version}</version>
         </dependency>
         <dependency>
             <groupId>org.quickfixj</groupId>
-            <artifactId>quickfixj-messages-fix42</artifactId>
+            <artifactId>quickfixj-messages-fixt11</artifactId>
             <version>${quickfixj.version}</version>
         </dependency>
         <dependency>

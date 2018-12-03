@@ -5,6 +5,7 @@ import quickfix.Session;
 import quickfix.SessionID;
 import quickfix.SessionNotFound;
 import quickfix.SystemTime;
+import quickfix.field.Account;
 import quickfix.field.AllocAccount;
 import quickfix.field.BeginString;
 import quickfix.field.ClOrdID;
@@ -31,14 +32,12 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile("fix50sp2")
 @Slf4j
 public class NewOrderSenderFix50SP2 {
-    private final String senderSubId = "PZOUH";
-    private final String igAccount = "PZOUH";
+    private final String igAccount = "PAP16";
 
-    private SessionID sessionID = new SessionID(new BeginString("FIX.4.2"),
-            new SenderCompID("DEVTEST1"),
+    private SessionID sessionID = new SessionID(new BeginString("FIXT.1.1"),
+            new SenderCompID("DEVTEST3"),
             new TargetCompID("FIXOTC1"));
 
     public void sendNewOrder() {
@@ -52,17 +51,16 @@ public class NewOrderSenderFix50SP2 {
 
     private NewOrderSingle newOrderSingle() {
         NewOrderSingle nos = new NewOrderSingle();
-        nos.getHeader().setField(new SenderSubID(senderSubId));
+        nos.set(new Account(igAccount));
         nos.set(new ClOrdID(getNewClientOrderId()));
         nos.set(new OrdType(OrdType.MARKET));
         nos.set(new TimeInForce(TimeInForce.FILL_OR_KILL));
-        nos.set(new Side(Side.BUY));
-        nos.set(new OrderQty(101));
-        nos.set(new SecurityIDSource("101")); //Custom IG Value
-        nos.set(new SecurityID("GB00BH4HKS39"));
-        nos.set(new Currency("GBX"));
+        nos.set(new Side(Side.SELL));
+        nos.set(new OrderQty(1));
+        nos.set(new SecurityIDSource(SecurityIDSource.IG_ID)); //Custom IG Value
+        nos.set(new SecurityID("IX.D.FTSE.CFD.IP"));
+        nos.set(new Currency("GBP"));
         nos.set(new Symbol("N/A"));
-        nos.set(new SecurityExchange("L"));
         nos.set(new TransactTime(LocalDateTime.now()));
 
         return nos;

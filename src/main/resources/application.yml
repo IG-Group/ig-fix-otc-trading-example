@@ -2,9 +2,9 @@ spring:
   main:
     banner-mode: console
   application:
-    name: IG FIX DMA Trading API Example
+    name: IG FIX OTC Trading API Example
 
 quickfixj:
   client:
-    config: classpath:quickfixj-client.cfg
+    config: classpath:quickfixj-client50sp2.cfg
 
