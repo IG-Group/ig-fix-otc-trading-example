@@ -32,18 +32,8 @@
         </encoder>
     </appender>
 
-    <!-- We should use an async appender, passing on to a rolling file appender -->
-    <appender name="async" class="ch.qos.logback.classic.AsyncAppender">
-        <appender-ref ref="rollingFileAppender"/>
-        <queueSize>100000</queueSize>
-        <discardingThreshold>10</discardingThreshold>
-        <includeCallerData>false</includeCallerData>
-    </appender>
-
-
-    <!-- Use info level for PROD1,PROD2. Debug can be used if needed for all the others. -->
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
-        <appender-ref ref="async"/>
+        <appender-ref ref="rollingFileAppender"/>
     </root>
 </configuration>

@@ -2,6 +2,7 @@ package com.ig.api.fix.otc.trading.app.quickfixj;
 
 import java.time.LocalDateTime;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import lombok.extern.slf4j.Slf4j;
@@ -25,14 +26,22 @@ import quickfix.field.TimeInForce;
 import quickfix.field.TransactTime;
 import quickfix.fix50sp2.NewOrderSingle;
 
-@Component
 @Slf4j
-public class NewOrderSenderFix50SP2 {
-    private final String igAccount = "PAP16";
+@Component
+public class NewOrderSender {
 
-    private SessionID sessionID = new SessionID(new BeginString("FIXT.1.1"),
-            new SenderCompID("DEVTEST3"),
-            new TargetCompID("FIXOTC1"));
+    private final String igAccount;
+    private final SessionID sessionID;
+
+    public NewOrderSender(@Value("${IGAccount}") String igAccount,
+            @Value("${SenderCompID}") String senderCompID,
+            @Value("${TargetCompID}") String targetCompID) {
+        this.igAccount = igAccount;
+        this.sessionID = new SessionID(
+                new BeginString("FIXT.1.1"),
+                new SenderCompID(senderCompID),
+                new TargetCompID(targetCompID));
+    }
 
     public void sendNewOrder() {
         NewOrderSingle nos = newOrderSingle();
@@ -49,7 +58,7 @@ public class NewOrderSenderFix50SP2 {
         nos.set(new ClOrdID(getNewClientOrderId()));
         nos.set(new OrdType(OrdType.MARKET));
         nos.set(new TimeInForce(TimeInForce.FILL_OR_KILL));
-        nos.set(new Side(Side.SELL));
+        nos.set(new Side(Side.BUY));
         nos.set(new OrderQty(1));
         nos.set(new SecurityIDSource(SecurityIDSource.IG_ID)); //Custom IG Value
         nos.set(new SecurityID("IX.D.FTSE.CFD.IP"));

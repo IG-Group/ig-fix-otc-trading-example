@@ -3,6 +3,7 @@ package com.ig.api.fix.otc.trading.app.quickfixj;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import quickfix.Application;
 import quickfix.DoNotSend;
 import quickfix.FieldNotFound;
@@ -15,15 +16,19 @@ import quickfix.UnsupportedMessageType;
 import quickfix.fix50sp2.MessageCracker;
 
 @Slf4j
-public class QFJApplicationFix50SP2 implements Application {
+@Component("clientApplication")
+public class QFJApplication implements Application {
 
-	@Autowired
-    private MessageCracker messageCracker;
-	@Autowired
-    private NewOrderSenderFix50SP2 newOrderSender;
+    private final MessageCracker messageCracker;
+    private final NewOrderSender newOrderSender;
 
-    public QFJApplicationFix50SP2() {
+    public QFJApplication(@Autowired MessageCracker messageCracker,
+            @Autowired NewOrderSender newOrderSender) {
+        log.info("Starting QuickJ Application");
+        this.messageCracker = messageCracker;
+        this.newOrderSender = newOrderSender;
     }
+
 
     public void fromAdmin(Message message, SessionID sessionId)
             throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon {

@@ -15,9 +15,9 @@ import quickfix.fix50sp2.ExecutionReport;
 import quickfix.fix50sp2.MessageCracker;
 import quickfix.fix50sp2.PositionReport;
 
-@Component
 @Slf4j
-public class Fix50SP2MessageCracker extends MessageCracker {
+@Component
+public class MessageCrackerFix50sp2 extends MessageCracker {
 
     @Override
     public void onMessage(ExecutionReport message, SessionID sessionID)
