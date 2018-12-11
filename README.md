@@ -3,7 +3,7 @@ ig-fix-otc-trading-example
 
 This is a example java application that sends an order to the IG FIX OTC Trading API. 
 
-The application can be run by a counter party who has been allocated an IG FIX OTC session. 
+The example can be run by a counter party who has been allocated an IG FIX OTC session. 
 
 This example application is an initiator for the FIX connection. Once the session is logged on to IG's FIX API, it immediately sends a `NewOrderSingle` message. It is listening for response messages and once an ExecutionReport or PositionReport is received it will log the incoming messages and log "Received execution report for client order: XYZ order status: X" or "Received position report for client order: XYZ on account: ABC" 
 
@@ -14,15 +14,17 @@ Before running various properties require updating in
 _quickfixj-client50sp2.cfg_
 
 A counter party needs to update the following property values with values allocated by IG.
+
+``` 
 IGAccount=REPLACE_ME
 SenderCompID=REPLACE_ME
 SocketConnectHost=demo-fix.marketdatasystems.com
 SocketConnectPort=55000
-
+```
 
 **How to Build**
 
-This application uses a custom-built version of _quickfixj_ which allows you to refer to fields and message types by their names, rather than simply their number, reducing scope of errors and increasing readability. This can be obtained here: https://github.com/IG-Group/quickfixj. Building this library is required before running the example application. Please check out the latest OTC branch, currently this is QFJ_RELEASE_2_1_0_IG_OTC.
+This application uses a custom-built version of _quickfixj_ which allows you to refer to custom fields and message types by their names, rather than simply their number, reducing scope of errors and increasing readability. This can be obtained here: https://github.com/IG-Group/quickfixj. Building this library is required before running the example application. Please check out the latest OTC branch, currently this is QFJ_RELEASE_2_1_0_IG_OTC.
 
 This branch will need to be built; please run
 
@@ -43,5 +45,8 @@ Other ways of running a spring boot application can be found here
 https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-running-your-application.html
 
 
+**License and Acknowledgement**
 
+The ig-fix-otc-trading-example is released under version 2.0 of the http://www.apache.org/licenses/LICENSE-2.0[Apache License].
 
+This code utilises the following https://github.com/esanchezros/quickfixj-spring-boot-starter[quickfixj spring boot starter library].
