@@ -47,6 +47,6 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-runnin
 
 **License and Acknowledgement**
 
-The ig-fix-otc-trading-example is released under version 2.0 of the http://www.apache.org/licenses/LICENSE-2.0[Apache License].
+The ig-fix-otc-trading-example is released under version 2.0 of the [Apache License](http://www.apache.org/licenses/LICENSE-2.0).
 
-This code utilises the following https://github.com/esanchezros/quickfixj-spring-boot-starter[quickfixj spring boot starter library].
+This code utilises the following [quickfixj spring boot starter library](https://github.com/esanchezros/quickfixj-spring-boot-starter).
