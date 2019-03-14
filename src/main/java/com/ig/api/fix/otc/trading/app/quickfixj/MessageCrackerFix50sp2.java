@@ -11,6 +11,7 @@ import quickfix.IncorrectTagValue;
 import quickfix.SessionID;
 import quickfix.UnsupportedMessageType;
 import quickfix.field.NoPositions;
+import quickfix.field.OriginatingClientOrderRef;
 import quickfix.fix50sp2.ExecutionReport;
 import quickfix.fix50sp2.MessageCracker;
 import quickfix.fix50sp2.PositionReport;
@@ -34,7 +35,7 @@ public class MessageCrackerFix50sp2 extends MessageCracker {
     	final List<Group> noPositions = message.getGroups(NoPositions.FIELD);
     	
         log.info("Received position report for client order: {} on account: {}",
-                noPositions.get(0).getString(NoPositions.FIELD), message.getAccount().getValue());
+                noPositions.get(0).getString(OriginatingClientOrderRef.FIELD), message.getAccount().getValue());
     }
 
 }
